@@ -83,6 +83,7 @@ body {
     padding: var(--padding-vertical) 0;
     background-color: var(--header-background-color);
     font-size: 1.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .header__menu-toggle {
@@ -130,6 +131,14 @@ body {
     max-width: var(--max-width);
 }
 
+@keyframes slide {
+    0% { background-image: url('images/background.webp'); }
+    25% { background-image: url('images/backgroundII.webp'); }
+    50% { background-image: url('images/backgroundIII.webp'); }
+    75% { background-image: url('images/backgroundIV.webp'); }
+    100% { background-image: url('images/background.webp'); }
+  }
+
 .landing {
     display: flex;
     flex-direction: column;
@@ -140,11 +149,33 @@ body {
     background-repeat: no-repeat;
     background-attachment: scroll;
     width: 100%; height: 100vh;
+    animation: slide 25s infinite;
 }
 
+.landing__overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes textColorChange {
+    0% { color: #444444; }
+    25% { color: #FFFFFF; }
+    50% { color: #FFFFFF; }
+    75% { color: #FFFFFF; }
+    100% { color: #444444; }
+  }
 
 .landing__header {
     margin: var(--margin-vertical) 0;
+    animation: textColorChange 25s infinite;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 .landing__cta {
@@ -152,7 +183,7 @@ body {
     margin: var(--margin-vertical) 0;
     padding: var(--padding-vertical) var(--padding-horizontal);
     border-radius: 100px;
-    background: linear-gradient(var(--button-bg), var(--link-hover));
+    background-image: linear-gradient(var(--button-bg), var(--link-hover));
     border: none;
     color: white;
     font-weight: bold;
@@ -160,6 +191,6 @@ body {
 }
 
 .landing__cta:hover {
-    background: linear-gradient(var(--button-bg), #f2e6d9);
+    background-image: linear-gradient(#444444, #000000);
 }
 
